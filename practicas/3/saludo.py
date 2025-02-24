@@ -1,1 +1,2 @@
-print("Soy Oscar Montiel y estoy haciendo la tercera practica")
+nombre = input("Escribe tu nombre: ")
+print(f"Soy {nombre} y estoy haciendo la 3a practica")
