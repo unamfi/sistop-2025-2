@@ -200,6 +200,9 @@ importa es realizar la práctica.
    punto intermedio en que tienen el programa en su primer estado, y ③ el estado
    final, con el programa con el saludo personlizado.
 
+   ¡Ojo! Entrega los pantallazos _como archivos, como parte del pull request_, y
+   no como comentarios en el *commit*.
+
 Puntos fundamental a considerar:
 
 - El estado final de la entrega de tu programa incluye (por lo menos) a dos
