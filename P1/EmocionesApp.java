@@ -12,7 +12,7 @@ public class EmocionesApp extends JFrame {
         add(emocionesP, BorderLayout.CENTER);
 
         JPanel inputPanel = new JPanel(new BorderLayout());
-        JLabel label = new JLabel("¿Cómo te sientes hoy?");
+        JLabel label = new JLabel("¿Cómo te sientes ahora mismo?");
         JTextField entrada = new JTextField();
         entrada.addActionListener(e -> {
             emocionesP.procesarEntrada(entrada.getText());
