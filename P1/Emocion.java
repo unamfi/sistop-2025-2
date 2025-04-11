@@ -58,7 +58,9 @@ public class Emocion implements Runnable {
     public void run() {
         while (!Thread.currentThread().isInterrupted()) {
             try {
-                lock.lock();
+                if (!lock.tryLock(100, TimeUnit.MILLISECONDS)) {
+                    continue;
+                }
                 try {
                     while (!esCompatible()) {
                         if (activa) {
@@ -142,11 +144,9 @@ public class Emocion implements Runnable {
             return true;
         }
 
-        // Obtener todas las emociones activas (excepto esta)
         Set<String> emocionesActivas = panel.getEmocionesActivas();
         emocionesActivas.remove(nombre);
 
-        // Crear conjunto con nuestra emoción + las activas
         Set<String> conjuntoAVerificar = new HashSet<>(emocionesActivas);
         conjuntoAVerificar.add(nombre);
 
