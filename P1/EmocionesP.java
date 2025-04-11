@@ -32,10 +32,10 @@ public class EmocionesP extends JPanel {
 
         String[] nombres = { "alegria", "tristeza", "enojo", "ansiedad", "calma" };
         Map<String, Color> coloresEmociones = Map.of(
-                "alegria", new Color(255, 215, 0),
-                "tristeza", new Color(30, 144, 255),
+                "alegria", new Color(30, 144, 255),
+                "tristeza", new Color(70, 40, 100),
                 "enojo", new Color(220, 20, 60),
-                "ansiedad", new Color(255, 69, 0),
+                "ansiedad", new Color(204, 85, 0),
                 "calma", new Color(50, 205, 50));
 
         barras = new HashMap<>();
