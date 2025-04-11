@@ -26,10 +26,49 @@ public class EmocionesP extends JPanel {
             new Color(200, 50, 255, 40) // Violeta
     };
 
+    // Método para crear el título con efecto arcoíris
+    private JPanel crearHeaderArcoiris() {
+        JPanel headerPanel = new JPanel(new BorderLayout()) {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                Graphics2D g2d = (Graphics2D) g;
+
+                // Degradado horizontal arcoíris
+                float[] fractions = { 0f, 0.16f, 0.33f, 0.49f, 0.66f, 0.82f, 1f };
+                Color[] colors = {
+                        new Color(255, 0, 0), // Rojo
+                        new Color(255, 165, 0), // Naranja
+                        new Color(255, 255, 0), // Amarillo
+                        new Color(0, 128, 0), // Verde
+                        new Color(0, 0, 255), // Azul
+                        new Color(75, 0, 130), // Índigo
+                        new Color(238, 130, 238) // Violeta
+                };
+
+                LinearGradientPaint gradient = new LinearGradientPaint(
+                        0, 0, getWidth(), 0, fractions, colors);
+
+                g2d.setPaint(gradient);
+                g2d.fillRect(0, 0, getWidth(), getHeight());
+            }
+        };
+
+        JLabel titulo = new JLabel(" F E E L I N G S ", SwingConstants.CENTER);
+        titulo.setFont(new Font("Arial", Font.BOLD, 28));
+        titulo.setForeground(Color.WHITE);
+        titulo.setBorder(BorderFactory.createEmptyBorder(15, 0, 15, 0));
+
+        headerPanel.add(titulo, BorderLayout.CENTER);
+        headerPanel.setPreferredSize(new Dimension(0, 60)); // Altura fija
+
+        return headerPanel;
+    }
+
     public EmocionesP() {
         setLayout(new BorderLayout());
         setOpaque(false);
-
+        add(crearHeaderArcoiris(), BorderLayout.NORTH);
         String[] nombres = { "alegria", "tristeza", "enojo", "ansiedad", "calma" };
         Map<String, Color> coloresEmociones = Map.of(
                 "alegria", new Color(30, 144, 255),
