@@ -1,8 +1,8 @@
 import javax.swing.*;
-import java.awt.*;
+import java.awt.*; //para layouts y clases base
 
-public class EmocionesApp extends JFrame {
-    public EmocionesApp() {
+public class EmocionesApp extends JFrame { // esta clase es principalmente para la interfaz
+    public EmocionesApp() { // el constructor principal
         super("Sincronía Emocional");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(500, 400);

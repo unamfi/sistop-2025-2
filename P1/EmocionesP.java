@@ -1,9 +1,9 @@
-import javax.swing.*;
-import java.awt.*;
-import java.util.*;
-import java.util.concurrent.*;
-import java.util.concurrent.locks.*;
-import java.util.stream.*;
+import javax.swing.*; //Nos ayuda con la interfaz (contiene JFrame, Jpanel, JButton)
+import java.awt.*; // Es mejor tenerlo cuando usamos swing 
+import java.util.*; //la libreria de toda la vida en java
+import java.util.concurrent.*; //contiene ExecutorService, Semaphore, TimeUnit
+import java.util.concurrent.locks.*; //Contiene locks, condition 
+import java.util.stream.*; // Permite operaciones estilo funcional (filter, map, reduce) sobre secuencias de elementos
 
 public class EmocionesP extends JPanel {
     private final Map<String, JProgressBar> barras;
@@ -26,7 +26,6 @@ public class EmocionesP extends JPanel {
             new Color(200, 50, 255, 40) // Violeta
     };
 
-    // Método para crear el título con efecto arcoíris
     private JPanel crearHeaderArcoiris() {
         JPanel headerPanel = new JPanel(new BorderLayout()) {
             @Override
@@ -34,7 +33,6 @@ public class EmocionesP extends JPanel {
                 super.paintComponent(g);
                 Graphics2D g2d = (Graphics2D) g;
 
-                // Degradado horizontal arcoíris
                 float[] fractions = { 0f, 0.16f, 0.33f, 0.49f, 0.66f, 0.82f, 1f };
                 Color[] colors = {
                         new Color(255, 0, 0), // Rojo
@@ -58,9 +56,8 @@ public class EmocionesP extends JPanel {
         titulo.setFont(new Font("Arial", Font.BOLD, 28));
         titulo.setForeground(Color.WHITE);
         titulo.setBorder(BorderFactory.createEmptyBorder(15, 0, 15, 0));
-
         headerPanel.add(titulo, BorderLayout.CENTER);
-        headerPanel.setPreferredSize(new Dimension(0, 60)); // Altura fija
+        headerPanel.setPreferredSize(new Dimension(0, 60));
 
         return headerPanel;
     }
@@ -113,7 +110,6 @@ public class EmocionesP extends JPanel {
                     g2d.dispose();
                 }
             };
-
             barra.setStringPainted(true);
             barra.setForeground(coloresEmociones.get(nombre));
             barra.setString(nombre);
@@ -130,7 +126,8 @@ public class EmocionesP extends JPanel {
         add(panelBarras, BorderLayout.CENTER);
     }
 
-    @Override
+    @Override // Queremos que nuestro titulo se vea bien, entonces no es más que logica para
+              // la interfaz
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
@@ -155,9 +152,11 @@ public class EmocionesP extends JPanel {
     }
 
     public Set<String> getEmocionesActivas() {
-        lockEmociones.lock();
+        lockEmociones.lock(); // Adquiere un bloqueo (lock) para asegurar que el acceso al mapa de emociones
+                              // sea thread-safe (seguro para hilos concurrentes)
         try {
-            return emociones.keySet().stream()
+            return emociones.keySet().stream() // Obtiene todas las claves del mapa emociones y las convierte en un
+                                               // stream para procesamiento
                     .filter(this::estaEmocionActiva)
                     .collect(Collectors.toSet());
         } finally {
@@ -165,18 +164,18 @@ public class EmocionesP extends JPanel {
         }
     }
 
-    public boolean sonCompatibles(Set<String> emocionesAVerificar) {
-        // Verificar incompatibilidades dentro del grupo1
-        long countGrupo1 = emocionesAVerificar.stream().filter(grupo1::contains).count();
+    public boolean sonCompatibles(Set<String> emocionesAVerificar) { // Método necesario para verificar que las
+                                                                     // emociones sean congruentes
+        long countGrupo1 = emocionesAVerificar.stream().filter(grupo1::contains).count(); // Filtra solo las emociones
+                                                                                          // que están contenidas en
+                                                                                          // grupo1
         if (countGrupo1 > 1)
             return false;
 
-        // Verificar incompatibilidades dentro del grupo2
         long countGrupo2 = emocionesAVerificar.stream().filter(grupo2::contains).count();
         if (countGrupo2 > 1)
             return false;
 
-        // Verificar reglas cruzadas
         if (emocionesAVerificar.contains("alegria") && emocionesAVerificar.contains("ansiedad"))
             return false;
         if (emocionesAVerificar.contains("enojo") && emocionesAVerificar.contains("ansiedad"))
@@ -191,7 +190,7 @@ public class EmocionesP extends JPanel {
 
     public void procesarEntrada(String texto) {
         texto = texto.toLowerCase();
-        lockEmociones.lock();
+        lockEmociones.lock(); // Bloquea para acceso thread-safe
         try {
             Set<String> emocionesAActivar = new HashSet<>();
 
@@ -207,69 +206,77 @@ public class EmocionesP extends JPanel {
             if (texto.contains("calmado") || texto.contains("tranquilo"))
                 emocionesAActivar.add("calma");
 
-            // Verificar compatibilidad
             if (!this.sonCompatibles(emocionesAActivar)) {
                 mostrarErrorIncompatibilidad();
                 return;
             }
 
-            // Desactivar incompatibles y activar las nuevas
             for (String emocion : emocionesAActivar) {
                 desactivarIncompatibles(emocion);
-                emociones.get(emocion).activar();
+                emociones.get(emocion).activar(); // Activa la emoción actual
             }
 
-            // Actualizar barras
             for (String emocion : emociones.keySet()) {
                 barras.get(emocion).setValue(estaEmocionActiva(emocion) ? 100 : 0);
             }
 
-            emocionesCompatibles.signalAll();
+            emocionesCompatibles.signalAll(); // Notifica a otros hilos
         } finally {
-            lockEmociones.unlock();
+            lockEmociones.unlock(); // Siempre libera el lock
         }
     }
 
     private void desactivarIncompatibles(String emocionActivada) {
-        // Desactivar todas las emociones incompatibles
-        for (String emo : emociones.keySet()) {
-            if (!emo.equals(emocionActivada)) {
+        for (String emo : emociones.keySet()) { // Va a recorrer todas las emcociones existentes
+            if (!emo.equals(emocionActivada)) { // aquí claramente no se puede comparar consigo misma
                 Set<String> conjunto = Set.of(emocionActivada, emo);
                 if (!sonCompatibles(conjunto)) {
-                    emociones.get(emo).desactivarForzado();
+                    emociones.get(emo).desactivarForzado(); // Si son incompatibles, desactiva forzosamente la otra
+                                                            // emoción la que no es la que se está activando
                 }
             }
         }
     }
 
-    public void mostrarErrorIncompatibilidad() {
+    public void mostrarErrorIncompatibilidad() { // Mnadamos a mensaje diciendo de forma comprensiva, si puede tener ese
+                                                 // conflicto de emociones
         SwingUtilities.invokeLater(() -> JOptionPane.showMessageDialog(this,
                 "¿Estas seguro de sentirte así?", "Error",
                 JOptionPane.ERROR_MESSAGE));
     }
 
     public boolean estaEmocionActiva(String nombreEmocion) {
-        lockEmociones.lock();
+        lockEmociones.lock(); // Adquiere un lock para garantizar exclusión mutua
         try {
             Emocion emocion = emociones.get(nombreEmocion);
-            return emocion != null && emocion.activa;
+            return emocion != null && emocion.activa; // Accedemos al mapa emociones para recuperar el objeto Emocion
         } finally {
-            lockEmociones.unlock();
+            lockEmociones.unlock(); // Garantiza que el lock se libere incluso si falla la operación y evita
+                                    // deadlocks o bloqueos permanentes
         }
     }
 
-    public void liberarPermiso() {
-        semaforoGlobal.release();
-    }
+    public void liberarPermiso() { // Este método es extremadamente simple pero cumple una función importante en la
+        semaforoGlobal.release(); // gestión de concurrencia del sistema, su acción principal es libera un permiso
+                                  // (unidad de acceso)
+    } // en el semáforo global del sistema. El efecto es que incrementa el contador
+      // interno del semaforo
+      // Si hay hilos esperando por un permiso, uno de ellos podrá continuar su
+      // ejecucion
+      // ejecución
 
-    public void shutdown() {
-        executor.shutdownNow();
+    public void shutdown() { // Este método implementa un patrón de apagado controlado para un
+                             // ExecutorService, asegurando la terminación ordenada de los hilos en ejecucion
+        executor.shutdownNow(); // Intenta detener todas las tareas en ejecución y cancela tareas pendientes no
+                                // iniciadas
         try {
-            if (!executor.awaitTermination(1, TimeUnit.SECONDS)) {
+            if (!executor.awaitTermination(1, TimeUnit.SECONDS)) { // Da 1 segundo para terminación ordenada
+                                                                   // awaitTermination devuelve false si timeout ocurre
+                                                                   // antes que termine
                 System.err.println("Advertencia: No todos los hilos terminaron a tiempo");
             }
         } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
+            Thread.currentThread().interrupt(); // Restablecemos flag de interrupcion
         }
     }
 }

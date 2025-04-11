@@ -30,12 +30,13 @@ public class Emocion implements Runnable {
     }
 
     public void activar() {
-        lock.lock();
+        lock.lock(); // Adquiere un lock para exclusión mutua y garantiza que solo un hilo modifique
+                     // el estado a la vez
         try {
             if (!activa) {
                 activa = true;
-                forzarDesactivar = false;
-                emocionesCompatibles.signalAll();
+                forzarDesactivar = false; // Limpia cualquier estado de desactivación forzada
+                emocionesCompatibles.signalAll(); // Despierta todos los hilos esperando en esta condición
             }
         } finally {
             lock.unlock();
@@ -46,7 +47,8 @@ public class Emocion implements Runnable {
         lock.lock();
         try {
             if (activa) {
-                forzarDesactivar = true;
+                forzarDesactivar = true; // Establece el flag forzarDesactivar a verdadero e indica que la emoción debe
+                                         // ser desactivada prioritariamente
                 emocionesCompatibles.signalAll();
             }
         } finally {
@@ -56,7 +58,7 @@ public class Emocion implements Runnable {
 
     @Override
     public void run() {
-        while (!Thread.currentThread().isInterrupted()) {
+        while (!Thread.currentThread().isInterrupted()) { // Se ejecuta continuamente hasta que el hilo es interrumpido
             try {
                 if (!lock.tryLock(100, TimeUnit.MILLISECONDS)) {
                     continue;
@@ -65,12 +67,13 @@ public class Emocion implements Runnable {
                     while (!esCompatible()) {
                         if (activa) {
                             activa = false;
-                            panel.liberarPermiso();
+                            panel.liberarPermiso(); // Si está activa, la desactiva y libera permisos, espera
+                                                    // notificaciones (hasta 100ms) antes de revalidar
                         }
                         emocionesCompatibles.await(100, TimeUnit.MILLISECONDS);
                     }
 
-                    if (forzarDesactivar) {
+                    if (forzarDesactivar) { // Libera recursos si estaba activa
                         if (activa) {
                             panel.liberarPermiso();
                             activa = false;
@@ -87,7 +90,7 @@ public class Emocion implements Runnable {
                 } finally {
                     lock.unlock();
                 }
-                Thread.sleep(50);
+                Thread.sleep(50); // Espera 50ms entre ciclos para reducir carga CPU
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
                 return;
@@ -102,7 +105,10 @@ public class Emocion implements Runnable {
             Thread.sleep(50);
         }
 
-        if (!forzarDesactivar && intensidad >= 100) {
+        if (!forzarDesactivar && intensidad >= 100) { // Adquiere lock para thread-safety y desactiva la emoción,
+                                                      // también cambia flag activa
+                                                      // y libera permiso asociado, donde libera el lock en bloque
+                                                      // finally
             lock.lock();
             try {
                 activa = false;
@@ -120,13 +126,14 @@ public class Emocion implements Runnable {
 
             if (intensidad == 0) {
                 lock.lock();
-                try {
+                try { // Bloqueo para modificación segura del estado, si estaba activa, la desactiva
+                      // formalmente
                     if (activa) {
                         activa = false;
                         panel.liberarPermiso();
                     }
                 } finally {
-                    lock.unlock();
+                    lock.unlock(); // garantiza la liberacion del lock
                 }
             }
         }
