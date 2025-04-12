@@ -1,0 +1,30 @@
+# Archivos de compilación
+*.class
+*.jar
+*.war
+*.ear
+
+# Directorios de salida
+/bin/
+/build/
+/out/
+
+# Archivos generados por IDEs
+*.iml
+.idea/
+*.ipr
+*.iws
+.vscode/
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de logs
+*.log
+
+# Archivos temporales o de backup
+*.swp
+*~
+*.tmp
+
