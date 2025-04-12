@@ -1,0 +1,3 @@
+El tema que vamos a desarrollar lo que sucede en una casa compartida donde renta gente que viene de distintos lugares. 
+Cada quien usa los electrodomésticos de la casa (la lavadora, la cafetera, la estufa y la televisión), pero hay conflictos frecuentes porque algunos dispositivos no pueden usarse al mismo tiempo sin sobrecargar el sistema eléctrico.
+Además, algunos dispositivos deben usarse en un orden específico (por ejemplo, no puedes poner la ropa en la secadora si alguien más sigue usando la lavadora).

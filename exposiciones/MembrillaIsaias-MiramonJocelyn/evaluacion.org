@@ -1,0 +1,86 @@
+#+title:  Evaluación de la exposición
+#+author: Gunnar Wolf
+
+* Comparación de rendimiento de ejecución de tareas en distintos sistemas operativos
+
+- Tema presentado por :: Jocelyn Miramón e Isaías Iñaki Membrilla
+- Calificación global :: Por favor lean todo el archivo para entender de dónde
+  vienen todos estos números 😉
+
+|------------------------+------+--------------------+------+---------|
+| Evaluación  compañeros | Peso | Evaluación docente | Peso | *Total* |
+|------------------------+------+--------------------+------+---------|
+|                   9.68 |  0.3 |                 10 |  0.7 |    9.90 |
+|------------------------+------+--------------------+------+---------|
+#+TBLFM: @2$5=$1*$2+$3*$4;f-2
+
+* Comentarios
+
+Dado que es una presentación en video, no puedo evaluar /dominio del tema/ y
+/presencia/ como lo haríamos habitualmente. Me centro en las respuestas que
+hagan a las preguntas de sus compañeros para el primero y en si la presentación
+"suena" leída directamente del material que prepararon o expuesta más libremente
+para el segundo.
+
+
+* Evaluación grupal
+
+|              | 1 | 2 | 3 | 4 |  5 | Total |
+|--------------+---+---+---+---+----+-------|
+| Originalidad | 0 | 0 | 1 | 3 | 11 |  9.33 |
+| Nivel        | 0 | 0 | 0 | 2 | 13 |  9.73 |
+| Relevancia   | 0 | 0 | 0 | 1 | 14 |  9.87 |
+| Claridad     | 0 | 0 | 1 | 0 | 14 |  9.73 |
+| Presencia    | 0 | 0 | 1 | 0 | 14 |  9.73 |
+|--------------+---+---+---+---+----+-------|
+|              |   |   |   |   |    |  9.68 |
+#+TBLFM: @2$7..@6$7=10 * (0.2*$2 + 0.4*$3 + 0.6*$4 + 0.8*$5 + $6 ) / vsum($2..$6); f-2::@7$7=vmean(@2$7..@6$7); f-2
+
+** Comentarios de los compañeros
+
+Su exposición recibió los siguientes comentarios anonimizados por
+parte de sus compañeros:
+- Al comienzo, resultó un poco difícil seguir el ritmo debido a la falta de
+  subtítulos o palabras clave que facilitaran la orientación. Sin embargo,
+  a medida que avanzó la exposición, la información se hizo más clara y
+  comprensible. Aunque el uso de clips (videos) fue útil, considero que una
+  menor cantidad habría permitido un mejor equilibrio en la presentación.
+- lo dieron todo, educaron, devoraron, sirvieron.
+- Forma creativa de presentar el tema, llama la atención
+- El tema escogido es muy importante ya que a estas alturas, hacerse de una
+  idea de lo que son los sistemas operativos y sus características te puede
+  ayudar a que no te vean la cara y te estafen o pierdas dinero. La
+  comparativa Windows y linux es muy interesante extensa, pero me parece
+  que los puntos que tocaron los compañeros son excelentemente escogidos y
+  fundamentados de gran manera con todos los estudios mostrados.
+- Muy buena exposición,
+
+  pero todos sabemos que el mejor es TempleOS
+* Evaluación por parte del docente
+
+| *Aspecto*                          | *Peso* | *Evaluación* | *Puntos* |
+|------------------------------------+--------+--------------+----------|
+| Contenido técnico y profunidad     |    0.3 |           10 |       3. |
+| Fuentes bibliográficas             |   0.15 |           10 |      1.5 |
+| Organización                       |   0.15 |           10 |      1.5 |
+| Comunicación oral y uso del tiempo |   0.25 |           10 |      2.5 |
+| Uso de recursos visuales           |   0.15 |           10 |      1.5 |
+|------------------------------------+--------+--------------+----------|
+| *Global*                           |        |              |    10.00 |
+#+TBLFM: @<<$4..@>>$4=$2*$3::$4=vsum(@<<..@>>);f-2
+
+** Comentarios del docente
+
+- La producción del video fue excelente 😃 Si bien las escenas pueden ser
+  un tanto genéricas, el video llama la atención y ayuda a mantener el
+  interés de su público. ¡Felicidades!
+  - El ritmo con el que explican es también muy bueno.
+- Excelente también el hecho de hacer un análisis de artículos publicados
+  en congresos formales o /journals/ científicos
+  - Y mejor todavía, como concluyen, no presentarlos /acríticamente/: el
+    que un artículo o ponencia estén publicados no garantizan que estén
+    libres de sesgos o errores metodológicos. ¡Excelente! 😃
+- Si bien hay detalles en que me gustaría entrar a debatir y con los que no
+  estoy del todo de acuerdo... ¡Felicidades! Es una de las mejores
+  exposiciones que me ha tocado evaluar 👨‍🎓
+

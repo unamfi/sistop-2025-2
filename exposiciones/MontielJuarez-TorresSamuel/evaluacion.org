@@ -1,0 +1,100 @@
+#+title:  Evaluación de la exposición
+#+author: Gunnar Wolf
+
+* Sistemas operativos para edge computing
+
+- Tema presentado por :: Oscar Montiel y Samuel Torres
+- Calificación global :: Por favor lean todo el archivo para entender de dónde
+  vienen todos estos números 😉
+
+|------------------------+------+--------------------+------+---------|
+| Evaluación  compañeros | Peso | Evaluación docente | Peso | *Total* |
+|------------------------+------+--------------------+------+---------|
+|                   9.49 |  0.3 |               8.05 |  0.7 |    8.48 |
+|------------------------+------+--------------------+------+---------|
+#+TBLFM: @2$5=$1*$2+$3*$4;f-2
+
+* Comentarios
+
+Dado que es una presentación en video, no puedo evaluar /dominio del tema/ y
+/presencia/ como lo haríamos habitualmente. Me centro en las respuestas que
+hagan a las preguntas de sus compañeros para el primero y en si la presentación
+"suena" leída directamente del material que prepararon o expuesta más libremente
+para el segundo.
+
+
+* Evaluación grupal
+
+|              | 1 | 2 | 3 | 4 |  5 | Total |
+|--------------+---+---+---+---+----+-------|
+| Originalidad | 0 | 0 | 0 | 3 | 11 |  9.57 |
+| Nivel        | 0 | 0 | 0 | 3 | 11 |  9.57 |
+| Relevancia   | 0 | 0 | 0 | 2 | 12 |  9.71 |
+| Claridad     | 0 | 1 | 0 | 2 | 11 |  9.29 |
+| Presencia    | 0 | 0 | 1 | 3 | 10 |  9.29 |
+|--------------+---+---+---+---+----+-------|
+|              |   |   |   |   |    |  9.49 |
+#+TBLFM: @2$7..@6$7=10 * (0.2*$2 + 0.4*$3 + 0.6*$4 + 0.8*$5 + $6 ) / vsum($2..$6); f-2::@7$7=vmean(@2$7..@6$7); f-2
+
+** Comentarios de los compañeros
+
+Su exposición recibió los siguientes comentarios anonimizados por
+parte de sus compañeros:
+
+- Excelente tema
+- Sus diapositivas tenían demasiado texto, considero que pudieron dividir
+  la información en más diapositivas para hacerlo más dinámico.
+- Desconocía de este gran tema pero veo que es un tema de suma relevancia y
+  que actualmente está tomando importancia y se va metiendo a varios campos
+  en los que ya se aplica actualmente. La fluidez con la que hablan hace
+  que se note el conocimiento y dominio de los compañeros.
+
+* Evaluación por parte del docente
+
+| *Aspecto*                          | *Peso* | *Evaluación* | *Puntos* |
+|------------------------------------+--------+--------------+----------|
+| Contenido técnico y profunidad     |    0.3 |           10 |       3. |
+| Fuentes bibliográficas             |   0.15 |           10 |      1.5 |
+| Organización                       |   0.15 |           10 |      1.5 |
+| Comunicación oral y uso del tiempo |   0.25 |            4 |       1. |
+| Uso de recursos visuales           |   0.15 |            7 |     1.05 |
+|------------------------------------+--------+--------------+----------|
+| *Global*                           |        |              |     8.05 |
+#+TBLFM: @<<$4..@>>$4=$2*$3::$4=vsum(@<<..@>>);f-2
+
+** Comentarios del docente
+- Un par de comentarios puntuales conforme avanza el video...
+  - TLS es la evolución de SSL, y ambos están diseñados para ofrecer un
+    /túnel cifrado/ sobre una conexión TCP (no UDP). Y no es que éstos
+    viajen sobre HTTP, sino que al revés: Cuando HTTP se encapsula sobre un
+    túnel TLS, se convierte en HTTPS.
+  - Cuando hablan de las características de los cuatro SOs que están
+    contrastando, mencionan muchos conceptos muy “suavecitos”:
+    - A la hora de hablar acerca del diseño del kernel (naturalmente, tanto
+      Ubuntu Core como Android Things van a ser monolíticos, dado que el
+      sistema operativo que tienen es el mismo: Linux)
+    - Al mencionar los recursos que requieren (¿cómo puedes /administrar el
+      almacenamiento/ si no sabes los requisitos? ¿cómo es eso de que
+      Android Things es /un poco pesado... es moderado pero tirando a
+      pesado/? ¡acostúmbrense a usar un lenguaje más claro y formal!)
+    - SecureBoot no es que /vuelve a arrancar seguro/. SecureBoot es una
+      técnica por medio de que, ayudado con un coprocesador criptográfico,
+      el CPU de un equipo puede constatar que /todo el código/ que está
+      ejecutando a cierto nivel de privilegio es /provisto por los
+      desarrolladores/ y no fue atacado o modificado.
+  - Habría sido muy bueno que abordaran el modelo unikernel, que mencionan
+    en su texto (aunque no en la exposición) y que me mencionaron por
+    correo. 🙁
+- Mi principal crítica al modelo que se propone como “novedoso” al hablar
+  de /edge computing/ es que... ¡es hacer las cosas como siempre! Vamos,
+  /desde siempre/ tuvimos servidores en los /puntos finales/: en las
+  oficinas, incluso en nuestras casas. Se inventó el /concepto/ de “cómputo
+  en la nube” para tercerizar mantenimiento a hardware y reducir costos,
+  pero muchos hemos trabajado con servidores locales desde siempre. Los
+  servidores pequeños que constituirían esta /capa/ de manejo de la
+  información pueden correr con /cualquier/ sistema operativo estándar; los
+  cuatro SOs que reseñan son más bien, si entiendo correctamente,
+  especializados para los /dispositivos/ (no para los nodos de cómputo).
+- Estoy de acuerdo con la opinión de sus compañeros: la exposición fue muy
+  fluida, se nota que es un tema que conocen y con cuyos conceptos están
+  familiarizados. ¡Muy bueno!

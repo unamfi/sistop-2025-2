@@ -1,0 +1,43 @@
+Planteamiento de una posible solución
+
+Usar Mutex (Exclusión mutua) para electrodomésticos críticos
+
+Algunos dispositivos solo pueden ser usados por una persona a la vez, como la lavadora, secadora y estufa.
+
+Se implementa un mutex en cada uno de estos dispositivos para garantizar que solo un proceso (inquilino) lo use en un momento dado.
+
+Ejemplo:
+
+Cuando un inquilino quiere usar la lavadora, debe bloquear el mutex.
+
+Mientras esté bloqueado, nadie más podrá usarla.
+
+Al terminar, libera el mutex para que otro pueda usarla.
+
+Semáforos para gestionar la sobrecarga eléctrica
+
+Se asigna un semáforo de conteo que representa la capacidad máxima del sistema eléctrico.
+
+Cada electrodoméstico tiene un peso (su consumo eléctrico), y el semáforo se decrementa según el consumo del dispositivo que se encienda.
+
+Si el semáforo llega a 0, nuevos procesos (inquilinos) deberán esperar hasta que otros liberen recursos al apagar sus dispositivos.
+
+Ejemplo:
+
+La casa soporta un máximo de 20 unidades de consumo eléctrico.
+
+La cafetera consume 3 unidades, la lavadora 7 y la televisión 5.
+
+Si ya hay dispositivos consumiendo 18 unidades, no se podrá encender otro que supere la capacidad restante (2 unidades).
+
+Torniquetes para el orden de uso (lavadora-secadora)
+
+Algunos dispositivos dependen de otros, como la secadora, que solo puede usarse después de la lavadora.
+
+Se usa un torniquete (barrier) que bloquea el acceso a la secadora hasta que la lavadora haya terminado su ciclo.
+
+Ejemplo:
+
+El inquilino A pone ropa en la lavadora → el torniquete bloquea la secadora.
+
+Al finalizar el lavado, el torniquete se abre y permite que el inquilino B use la secadora.

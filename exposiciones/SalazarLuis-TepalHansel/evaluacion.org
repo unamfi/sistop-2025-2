@@ -1,0 +1,108 @@
+#+title:  Evaluación de la exposición
+#+author: Gunnar Wolf
+
+* Uso de hilos en sistemas de comunicación: Chats Interactivos
+
+- Tema presentado por :: Luis Salazar y Hansel Tepal
+- Calificación global :: Por favor lean todo el archivo para entender de dónde
+  vienen todos estos números 😉
+
+|------------------------+------+--------------------+------+---------|
+| Evaluación  compañeros | Peso | Evaluación docente | Peso | *Total* |
+|------------------------+------+--------------------+------+---------|
+|                   8.86 |  0.3 |               9.25 |  0.7 |    9.13 |
+|------------------------+------+--------------------+------+---------|
+#+TBLFM: @2$5=$1*$2+$3*$4;f-2
+
+* Comentarios
+
+Dado que es una presentación en video, no puedo evaluar /dominio del tema/ y
+/presencia/ como lo haríamos habitualmente. Me centro en las respuestas que
+hagan a las preguntas de sus compañeros para el primero y en si la presentación
+"suena" leída directamente del material que prepararon o expuesta más libremente
+para el segundo.
+
+
+* Evaluación grupal
+
+|              | 1 | 2 | 3 | 4 |  5 | Total |
+|--------------+---+---+---+---+----+-------|
+| Originalidad | 0 | 0 | 0 | 5 |  9 |  9.29 |
+| Nivel        | 0 | 0 | 0 | 2 | 12 |  9.71 |
+| Relevancia   | 0 | 0 | 0 | 2 | 12 |  9.71 |
+| Claridad     | 0 | 0 | 2 | 2 | 10 |  9.14 |
+| Presencia    | 0 | 1 | 1 | 3 |  9 |  8.86 |
+|--------------+---+---+---+---+----+-------|
+|              |   |   |   |   |    |  9.34 |
+#+TBLFM: @2$7..@6$7=10 * (0.2*$2 + 0.4*$3 + 0.6*$4 + 0.8*$5 + $6 ) / vsum($2..$6); f-2::@7$7=vmean(@2$7..@6$7); f-2
+
+** Comentarios de los compañeros
+
+Su exposición recibió los siguientes comentarios anonimizados por
+parte de sus compañeros:
+
+- Buena explicación, fue interesante.
+- Buena exposición :)
+- El tema es muy adecuado para el contexto de la clase y para el contexto
+  de la actualidad, ya que hoy en día todos usamos sistemas de
+  comunicación. La introducción de las definiciones antes de la explicación
+  del tema ayudan a comprender bien de lo que trata, además de que la
+  visualización con el código de un mejor entendimiento al tema. Las
+  ventajas y desventajas ayudan a comprender el por qué se eligen este tipo
+  de implementaciones para los sistemas de comunicación.
+- Les ganaron un poco los nervios, pero se logra entender la exposición
+- Muy interesante tema.
+
+* Evaluación por parte del docente
+
+| *Aspecto*                          | *Peso* | *Evaluación* | *Puntos* |
+|------------------------------------+--------+--------------+----------|
+| Contenido técnico y profunidad     |    0.3 |           10 |       3. |
+| Fuentes bibliográficas             |   0.15 |           10 |      1.5 |
+| Organización                       |   0.15 |           10 |      1.5 |
+| Comunicación oral y uso del tiempo |   0.25 |            7 |     1.75 |
+| Uso de recursos visuales           |   0.15 |           10 |      1.5 |
+|------------------------------------+--------+--------------+----------|
+| *Global*                           |        |              |     9.25 |
+#+TBLFM: @<<$4..@>>$4=$2*$3::$4=vsum(@<<..@>>);f-2
+
+** Comentarios del docente
+- ¡Ojo! El listado de referencias en el documento no coincide con el de la
+  presentación. Si se me ocurre ver a uno sólo de ellos cuando califico, no
+  les toca la nota completa 🙂
+- Me pareció excelente que presentaran la exposición como si estuvieran
+  charlando informalmente, no leyendo un guión. Resulta mucho más amigable
+  a la escucha.
+- Eligieron un muy buen ejemplo para presentar. ¡Felicidades! 😃
+- Faltaron algunos detalles que podrían resultar importantes, como los
+  tipos de socket disponibles, lo que significa “orientado a conexión”; no
+  pueden comparar TCP con WebSockets
+  - WebSockets /emplea TCP/, está un nivel de red más arriba 😉
+  - Habría que compararlo con UDP, o algunos protocolos menos conocidos,
+    como SCTP o QUIK.
+  - Pero.. esa no es nuestra materia. Y no puedo asumir que ya la hayan tomado.
+- Tal vez les han dicho que hay /algo/ que puede escribirse con menos
+  código en Java que en otros lenguajes. Les han mentido 😉 Bueno, a menos
+  que esos /otros lenguajes/ sean COBOL o FORTRAN 🙃 Va un servidorcito
+  completo en Python con un “echo chat” (esto es, entrega al usuario todo
+  lo que escribe):
+  #+begin_src python
+    import socket
+
+    HOST = "127.0.0.1"  # Standard loopback interface address (localhost)
+    PORT = 65432  # Port to listen on (non-privileged ports are > 1023)
+
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        s.bind((HOST, PORT))
+        s.listen()
+        conn, addr = s.accept()
+        with conn:
+            print(f"Connected by {addr}")
+            while True:
+                data = conn.recv(1024)
+                if not data:
+                    break
+                conn.sendall(data)
+  #+end_src
+  (El crédito no es mío, sino que de la página [[https://realpython.com/python-sockets/][Python Sockets de
+  RealPython.com]])

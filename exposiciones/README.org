@@ -1,0 +1,120 @@
+#+title: Exposiciones frente al grupo
+#+author: Gunnar Wolf
+
+* Calendario de exposiciones
+  La evaluación de las exposiciones sigue los criterios descritos en
+  la última sección de este archivo (/Criterios de evaluación grupal/
+  y /por el docente/).
+
+  |------------+-----------------------------------------------------------------------------------------------+------------------------------------------------+----------+-------------------------------------------------------------------------------------------------+----------------------------------------------|
+  |      Fecha | Tema                                                                                          | Integrantes                                    | Video    | Documentos                                                                                      | Evaluación                                   |
+  |------------+-----------------------------------------------------------------------------------------------+------------------------------------------------+----------+-------------------------------------------------------------------------------------------------+----------------------------------------------|
+  | 2025.03.25 | Sistemas Operativos de Tiempo Real                                                            | David Emilio Nava  y David Emmanuel Tavera     | [[https://youtu.be/C3R-TZCtFzE][Ver aquí]] | [[./NavaDavid-TaveraDavid/NavaDavid-TaveraDavid_Escrito.pdf][Escrito]], [[./NavaDavid-TaveraDavid/NavaDavid-TaveraDavid_Presentacion.pdf][Presentación]]                                                                           | [[./NavaDavid-TaveraDavid/resultados_encuesta.pdf][Resultados de la encuesta]], [[./NavaDavid-TaveraDavid/evaluacion.org][Evaluación global]] |
+  | 2025.03.25 | Virtualización: Cómo los sistemas operativos gestionan múltiples entornos en un sólo hardware | Luisa Segura                                   | [[https://youtu.be/vOf8BJZMcDM][Ver aquí]] | [[./SeguraLuisa/SeguraLuisa_Documentación.pdf][Documentación]], [[./SeguraLuisa/SeguraLuisa_Presentación.pdf][Presentación]]                                                                     | [[./SeguraLuisa/resultados_encuesta.pdf][Resultados de la encuesta]], [[./SeguraLuisa/evaluacion.org][Evaluación global]] |
+  | 2025.03.25 | Orquestadores de contenedores: Docker, Kubernetes, Proxmox VE y Podman                        | Juan Pablo Vera  y Carlos López Estrada        | [[https://youtu.be/8MHt8pPeG7I][Ver aquí]] | [[./LopezEstrada_VeraMorales/VeraMoralesExposicion.pdf][Guión de la presentación]], [[./LopezEstrada_VeraMorales/LopezEstradaExposicion.pdf][Presentación]],                                                         | [[./LopezEstrada_VeraMorales/resultados_encuesta.pdf][Resultados de la encuesta]], [[./LopezEstrada_VeraMorales/evaluacion.org][Evaluación global]] |
+  |            |                                                                                               |                                                |          | Otros documentos no utilizados: [[https://github.com/user-attachments/files/19459210/Proxmox.VE.y.Podman.Vera.Morales.pdf][Proxmox VE y Podman (texto)]], [[https://github.com/user-attachments/files/19459191/Exposicion.Promox-Podman.pdf][Proxmox VE y Podman (presentación)]] |                                              |
+  | 2025.04.01 | Uso de los hilos en sistemas de comunicación: Chats interactivos                              | Hansel Tepal y Luis Salazar                    | [[https://youtu.be/W3SQQNOPMRQ][Ver aquí]] | [[./SalazarLuis-TepalHansel/Documentacion.pdf][Documentación]], [[./SalazarLuis-TepalHansel/Presentacion.pdf][Presentación]],                                                                    | [[SalazarLuis-TepalHansel/resultados_encuesta.pdf][Resultados de la encuesta]], [[SalazarLuis-TepalHansel/evaluacion.org][Evaluación global]] |
+  |            |                                                                                               |                                                |          | Ejemplos:  [[./SalazarLuis-TepalHansel/Ejemplos/Ejemplo_Calculadora][1-Calculadora]], [[./SalazarLuis-TepalHansel/Ejemplos/Ejemplo_ChatSimple][2-Chat simple]], [[./SalazarLuis-TepalHansel/Ejemplos/Ejemplo_ChatConcurrente][3-Chat con concurrencia]], [[./SalazarLuis-TepalHansel/Ejemplos/Ejemplo_ChatSincro][4-Chat sincronizado]]           |                                              |
+  | 2025.04.01 | Sistemas operativos para /edge computing/                                                     | Oscar Montiel y Samuel Torres                  | [[https://youtu.be/8sfBlBHC6vc][Ver aquí]] | [[./MontielJuarez-TorresSamuel/MontielOscar_TorresSamuel-Documentacion.pdf][Documentación]], [[MontielJuarez-TorresSamuel/MontielOscar_TorresSamuel-Presentacion.pdf][Presentación]]                                                                     | [[MontielJuarez-TorresSamuel/resultados_encuesta.pdf][Resultados de la encuesta]], [[MontielJuarez-TorresSamuel/evaluacion.org][Evaluación global]] |
+  | 2025.04.01 | Comparación de rendimiento de ejecución de tareas en distintos sistemas operativos            | Jocelyn Miramón e Isaías Iñaki Membrilla       | [[https://youtu.be/js0G5O4S8SI][Ver aquí]] | [[./MembrillaIsaias-MiramonJocelyn/MembrillaIsaias-MiramonJocelyn-Expo.pdf][Exposición]]                                                                                      | [[MembrillaIsaias-MiramonJocelyn/resultados_encuesta.pdf][Resultados de la encuesta]], [[MembrillaIsaias-MiramonJocelyn/evaluacion.org][Evaluación global]] |
+  | 2025.04.08 | Desduplicación                                                                                | Valentina Domínguez                            |          |                                                                                                 |                                              |
+  | 2025.04.08 | Pacman: El motor de gestión de software en Arch Linux                                         | Andrea Saldaña y Emiliano Salgado              |          | [[./SaldañaAndrea-SalgadoRoman/Pacman_Exposicion_Saldaña_Salgado.pdf][Documento]], [[./SaldañaAndrea-SalgadoRoman/Presentación_Pacman_ArchLinux.pdf][Presentación]]                                                                         | [[https://encuestas.iiec.unam.mx/835743?lang=es-MX][Evaluación de los compañeros]]                 |
+  | 2025.04.08 | Manejo de recursos en los videojuegos de 8 bits                                               | Alfonso Rodríguez y Emilia Macarena Arriaga    | [[https://youtu.be/TFA06HB7x40][Ver aquí]] | [[./RodríguezAlfonso-ArriagaEmilia/DocumentoSISTOP_Arriaga_Zuluaga.pdf][Documento]], [[./RodríguezAlfonso-ArriagaEmilia/SISTOP_ManejoDeRecursosEnLosVideoJuegosDe8bits.pdf][Presentación]]                                                                         | [[https://encuestas.iiec.unam.mx/523349?lang=es-MX][Evaluación de los compañeros]]                 |
+  | 2025.04.14 | /Vacaciones de Semana Santa/                                                                  |                                                |          |                                                                                                 |                                              |
+  | 2025.04.21 | Unix y su papel en la historia de los Sistemas Operativos                                     | Alan Acosta y José Ángel Rubio                 |          |                                                                                                 |                                              |
+  | 2025.04.21 | Optimizaciones de proceso operativos con inteligencia artificial                              | María Fernanda Ayala y Elizabeth Portilla      |          |                                                                                                 |                                              |
+  | 2025.04.21 | TempleOS: Las implicaciones de un sistema operativo operando en el anillo 0 de protección     | Barvara Juárez y Jesus Talonia                 |          |                                                                                                 |                                              |
+  | 2025.04.28 | Proceso de creación de un sistema Linux embebido                                              | Luis Antonio Ugartechea y Enrique Job Calderón |          |                                                                                                 |                                              |
+  | 2025.04.28 | Programación funcional                                                                        | Leonardo Mikel Cervantes y Arnau Roger Solé    |          |                                                                                                 |                                              |
+  | 2025.04.28 | Sistemas operativos para la nube                                                              | Carlos Cano y Ángel Cortés                     |          |                                                                                                 |                                              |
+  | 2025.05.05 | Sistemas de archivos NTFS y exFat                                                             | Yordi Josué Jiménez y Gustavo Valenzuela       |          |                                                                                                 |                                              |
+  | 2025.05.05 | Sistema de archivos Btrfs (B-Tree File System)                                                | Christian Gustavo Romero e Iker Ávila          |          |                                                                                                 |                                              |
+  | 2025.05.05 | Seguridad en el kernel: Cómo proteger a un SO contra rootkits                                 | Héctor Zambrano y Anuar Meléndez               |          |                                                                                                 |                                              |
+  | 2025.05.12 | Aspectos de sistemas operativos en los dispositivos IoT                                       | Rodrigo García Peñafort y Gustavo Santana      |          |                                                                                                 |                                              |
+  | 2025.05.12 | Sistemas Operativos en Equipos Náuticos                                                       | Luis Martínez y Joseph Urbano                  |          |                                                                                                 |                                              |
+  | 2025.05.12 | /Listener/: Propósito, intereacción y usos                                                    | Erick Nava Santiago y Eric Ramírez Valdovinos  |          |                                                                                                 |                                              |
+  |------------+-----------------------------------------------------------------------------------------------+------------------------------------------------+----------+-------------------------------------------------------------------------------------------------+----------------------------------------------|
+  # El semestre termina el 24 de mayo. Programo exposiciones hasta la semana del 12.
+  # van 33 alumnos que registran tema.
+* ¿Y el tema?
+
+  ¿De qué tema presentar su exposición? De algún tema /relacionado con/ la
+  materia, que llame su atención. Que no sea un tema formal del temario de
+  cursado, pero que tenga vinculación con estos. ¡Con lo amplia que es la
+  /huella/ de los sistemas operativos en el cómputo, estoy seguro que podrán
+  encontrar temas interesantes!
+
+  Busco que los temas que expongan ustedes sean:
+  - Aterrizados técnicamente :: Que el foco principal de la exposición sea el
+    /cómo/, no el /qué/ o el /por qué/
+  - De profundidad acorde :: No describan una situación. Presenten temas
+    interesantes y novedosos desde un ángulo que sus compañeros (apasionados de
+    la computación y con conocimientos específicos muy por encima de los que
+    tiene la media poblacional) encuentren novedosos.
+
+  ¿No saben qué presentar? Platíquenlo conmigo por correo o al terminar la
+  clase, y estoy seguro que podremos ir llegando a algo que les resulte de
+  interés.
+
+* Rúbrica de evaluación
+
+  La evaluación de la exposición considera factores tanto de la calidad
+  del material desarrollado como de la forma en que se presenta al
+  grupo, como puede apreciarse en la siguiente tabla.
+
+  Toda exposición se evaluará considerando como requisitos
+  indispensables:
+
+  - El material presentado debe ser desarrollado íntegramente por el o
+    los alumnos expositores (con citas textuales indicadas expresamente)
+    o será descalificado.
+
+    Ojo: Reconozco como natural que empleen herramientas generativas de IA para
+    realizar parte de su investigación e incluso para estructurar las ideas,
+    pero /tanto para los documentos como para la presentación/, es indispensable
+    que _la autoría (incluyendo redacción y formateo) de sus entregas_ sea de
+    /ustedes/, no de una herramienta.
+
+  - El documento que desarrollen debe ser /conciso/ (3 a 4 páginas) y /completo/
+    (cubrir el material completo que quieran exponer). Consideren que la
+    exposición en video debe ser de unos 15-20 minutos; desarrollar más de 4
+    páginas llevará a un material demasiado largo 😐
+
+  - Les solicito el documento en buena medida para ayudarme a guiarlos a
+    desarrollar un buen trabajo, relacionado con la materia y con buena
+    profundidad, y hasta donde esté en mis capacidades, para evitar que caigan
+    en algunos errores. Para esto, les pido que me envíen sus documentos cuando
+    mucho el /jueves previo/ a su exposición, para que me de tiempo de
+    revisarlo, y para que a ustedes les de tiempo de incorporar las
+    modificaciones que pueda yo sugerirles.
+
+  - La elección de tema y fecha deben ser acordadas previamente con el
+    profesor, con no menos de dos semanas de anticipación.
+
+  La exposición ante el grupo constará de dos calificaciones: Un 70%
+  asignado por el profesor, y un 30% proveniente de evaluación grupal en
+  que los compañeros presentes en la sesión evalúen cuantitativamente y
+  de forma anónima.
+
+** Criterios de evaluación grupal
+
+   - Originalidad
+   - Nivel adecuado
+   - Relevancia
+   - Claridad en la presentación
+   - Presencia
+
+   Los compañeros tendrán también un campo para hacer comentarios en
+   formato libre al ponente.
+
+** Criterios de evaluación por el docente
+
+
+| Criterio                                | Excelente (100%)                                                                                               | Satisfactorio (70%)                                                                                       | Deficiente (40% o menos)                                                       | Peso |
+|-----------------------------------------+----------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------+------|
+| *1. Contenido Técnico y Profundidad*    | Explica conceptos clave con precisión, usa 3+ ejemplos técnicos bien desarrollados y relaciona con la materia. | Explicaciones correctas pero poco profundas, usa 1-2 ejemplos sin mucho análisis.                         | Definiciones imprecisas, sin ejemplos técnicos o sin relación con la materia.  |  30% |
+| *2. Fuentes Bibliográficas*             | 3+ fuentes formales (investigación, libros académicos), bien citadas y analizadas.                             | 1-2 fuentes formales con referencias parciales o poco integradas.                                         | Fuentes no formales predominan o falta citar adecuadamente.                    |  15% |
+| *3. Organización*                       | Introducción, desarrollo y conclusión bien definidas; información fluida y lógica.                             | Presenta estructura pero con fallas en la secuencia o transiciones.                                       | Desorden, falta alguna sección clave o sin lógica clara.                       |  15% |
+| *4. Comunicación Oral y Uso del Tiempo* | Habla con fluidez, volumen y ritmo adecuados; usa términos precisos; no lee guion; exposición dura 15-20 min.  | Dicción aceptable, lee ocasionalmente, términos técnicos poco explicados; tiempo entre 12-15 o 20-23 min. | Lee constantemente, voz poco clara, mal uso de términos; tiempo <12 o >23 min. |  25% |
+| *5. Uso de Recursos Visuales*           | Diapositivas y gráficos claros, bien diseñados y relevantes para la exposición.                                | Uso de recursos con fallos en claridad o diseño; algo de sobrecarga de texto.                             | No usa recursos o estos son confusos y poco útiles.                            |  15% |
+|-----------------------------------------+----------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------+------|
