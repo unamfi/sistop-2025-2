@@ -1,0 +1,73 @@
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{charter}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{listings}
+
+\usefonttheme[onlymath]{serif}
+
+\definecolor{azuloscuro}{HTML}{152139}
+\definecolor{azulclaro}{HTML}{0064FF}
+\definecolor{grisoscuro}{HTML}{000000}
+\definecolor{grisclaro}{HTML}{FFFFFF}
+
+\setbeamerfont{subtitle}{size=\scriptsize}
+\setbeamertemplate{title page}{
+    \begin{tikzpicture}[remember picture, overlay]
+    \fill[grisoscuro] (current page.south west) rectangle (current page.north east);
+    \draw[grisclaro, line width=1ex] (current page.north west) -- (current page.north east);
+    \node[anchor=center, align=left, text width=\textwidth, inner sep=0pt, text=white] at (current page.center) {
+        \usebeamerfont{title}
+            {\centering\textbf{\inserttitle}}
+        \vspace{0.2cm}
+        \rule{\linewidth}{0.4pt}
+        \vspace{0.2cm}
+        \begin{minipage}{0.6\textwidth}
+            \usebeamerfont{subtitle}
+                {\insertauthor}
+                {\insertinstitute\par}
+                {\insertdate}
+        \end{minipage}
+        \hfill
+        \begin{minipage}{0.3\textwidth}
+            \centering
+            \includegraphics[width=0.5\textwidth]{img/fi.png}
+        \end{minipage}
+        \vspace{0.2cm}
+        \rule{\linewidth}{0.4pt}
+    };
+    \end{tikzpicture}
+}
+
+
+\setbeamertemplate{headline}{%
+    {\color{grisclaro}\rule{\paperwidth}{1ex}}%
+}
+
+\setbeamercolor*{titlelike}{use=structure, fg=grisoscuro, bg=grisclaro}
+
+\setbeamercolor*{footline in head/foot}{use=structure, fg=grisclaro, bg=grisoscuro}
+\setbeamertemplate{footline}{%
+    \usebeamertemplate*{headline}
+    \begin{beamercolorbox}[ht=8.25ex, dp=1ex]{footline in head/foot}
+    \hspace{1.2em}\quad
+    \hfill
+    \vbox{%
+      \hbox{\hspace{.65in}\fontfamily{phv}\selectfont\textbf{Sistemas Operativos}, Semestre 2025-2, Calderón Enrique \& Ugartechea Luis}%
+      \par
+      \hbox{
+        \usebeamertemplate***{navigation symbols}
+      }
+    }
+    \hspace{.5em}
+    \end{beamercolorbox}%
+}
+
+\setbeamercolor{itemize item}{fg=grisoscuro}
+\setbeamercolor{itemize subitem}{fg=grisoscuro}
+\setbeamercolor{itemize subsubitem}{fg=grisoscuro}
+
+\setbeamertemplate{navigation symbols}{}
